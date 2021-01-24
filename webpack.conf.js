@@ -48,7 +48,7 @@ module.exports = {
         loader: "url-loader",
         options: {
           limit: 10000,
-          name: utils.assetsPath("img/[name].[hash:7].[ext]"),
+          name: utils.assetsPath("images/[name].[hash:7].[ext]"),
         },
       },
       {
@@ -60,6 +60,18 @@ module.exports = {
         loader: "ejs-loader",
       },
     ],
+  },
+  resolve: {
+    // 查找第三方依赖
+    modules: [path.resolve(__dirname, "./node_modules")],
+    alias: {
+      // 减少查找过程
+      // 起别名
+      "@": path.resolve(__dirname, "./src"),
+    },
+    // 设置在加载模块时，可以不写后缀，按下面的顺序依次查找
+    // 会消耗一些性能，推荐写代码直接写上后缀名
+    extensions: [".js", ".json", ".jsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -88,4 +100,3 @@ module.exports = {
     port: 3000,
   },
 };
-

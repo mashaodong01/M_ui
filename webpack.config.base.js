@@ -10,46 +10,8 @@ module.exports = {
         // css-loader 言简意赅 把css模块内容加到js模块
         // css in js方式
         // style-loader 从js中提取css的loader在html中创建
-        include: path.resolve(__dirname, "./src"), // 设置编译范围，构建更快
+        include: __dirname + "src", // 设置编译范围，构建更快
         use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true, // 开启css模块化
-            },
-          },
-          {
-            loader: "postcss-loader", // 用来添加前缀，做css的浏览器兼容
-          },
-        ],
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/,
-        use: {
-          loader: "file-loader",
-          options: {
-            name: "[name]_[hash:6].[ext]", // 打包后文件名————原名_6位hash.原后缀
-            outputPath: "images/", // 设置一个文件夹路径
-          },
-        },
-      },
-      //   推荐用url-loader   因为它支持limit
-      {
-        //    url-loader有file-loader中所有的功能，完全可替代它，还增加了自己的功能
-        test: /\.(png|jpe?g|gif)$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            name: "[name]_[hash:6].[ext]", // 打包后文件名————原名_6位hash.原后缀
-            outputPath: "images/", // 设置一个文件夹路径
-            limit: 2 * 1024, // 小于2k的图片被转成Base64格式
-          },
-        },
       },
       {
         test: /\.js$/,
