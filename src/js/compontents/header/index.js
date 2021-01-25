@@ -5,7 +5,7 @@ template.innerHTML = `
     .header {
       position: relative;
       display: flex;
-      height: 64px;
+      height: 55px;
       padding: 0 40px;
       box-shadow: 0 2px 8px #f0f1f2;
     }
@@ -28,15 +28,12 @@ template.innerHTML = `
 `;
 
 export default class Header extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" }).appendChild(
-      template.content.cloneNode(true)
-    );
-  }
-  connectedCallback() {}
-
-  createContent() {}
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" }).appendChild(
+            template.content.cloneNode(true)
+        );
+    }
 }
 
 customElements.define("m-header", Header);

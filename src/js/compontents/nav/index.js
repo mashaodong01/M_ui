@@ -17,26 +17,29 @@ template.innerHTML = `
 `;
 
 export default class Nav extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" }).appendChild(
-      template.content.cloneNode(true)
-    );
-  }
-  connectedCallback() {
-    this.createContent();
-    router.forceRefresh();
-  }
+    constructor() {
+        super();
+        this.attachShadow({ mode: "open" }).appendChild(
+            template.content.cloneNode(true)
+        );
+    }
+    connectedCallback() {
+        this.createContent();
+        router.forceRefresh();
+    }
 
-  createContent() {
-    const div = this.shadowRoot.querySelector("div");
-    routerData.forEach((router) => {
-      const routerItem = document.createElement("m-menu-item");
-      routerItem.setAttribute("title", router.title);
-      routerItem.setAttribute("data-url", router.path);
-      div.appendChild(routerItem);
-    });
-  }
+    createContent() {
+        const div = this.shadowRoot.querySelector("div");
+        routerData.forEach((router) => {
+            if (router.meta && router.meta.hidden) {
+                return;
+            }
+            const routerItem = document.createElement("m-menu-item");
+            routerItem.setAttribute("title", router.title);
+            routerItem.setAttribute("data-url", router.path);
+            div.appendChild(routerItem);
+        });
+    }
 }
 
 customElements.define("m-menu", Nav);
