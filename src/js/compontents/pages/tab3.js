@@ -11,10 +11,9 @@ template.innerHTML = `
 export default class Tab3 extends HTMLElement {
     constructor() {
         super();
-        this.path = null;
         this.attachShadow({ mode: "open" }).appendChild(
             template.content.cloneNode(true)
         );
     }
 }
-customElements.define("router-tab3", Tab3);
+customElements.define("page-tab3", Tab3);

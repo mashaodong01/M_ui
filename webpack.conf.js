@@ -24,7 +24,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.less$/,
+                test: /\.css$/,
                 include: path.resolve(__dirname, "./src"), // 设置编译范围，构建更快
                 use: [{
                         loader: "style-loader",
@@ -37,14 +37,6 @@ module.exports = {
                         options: {
                             plugin: function() {
                                 return [autoprefixer("last 5 versions")];
-                            },
-                        },
-                    },
-                    {
-                        loader: "less-loader",
-                        options: {
-                            lessOptions: {
-                                strictMath: true,
                             },
                         },
                     },

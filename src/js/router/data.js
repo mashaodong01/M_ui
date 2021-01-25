@@ -9,22 +9,27 @@ const routerData = [{
     }, {
         title: "简单的MVVM",
         path: "/mvvm",
-        component: "router-mvvm",
+        component: "page-mvvm",
+    }, {
+        title: "轮播图",
+        path: "/carousel",
+        component: "page-carousel",
     },
+    
     {
         title: "标签页tab2",
         path: "/tab2",
-        component: "router-tab2",
+        component: "page-tab2",
     },
     {
         title: "标签页tab3",
         path: "/tab3",
-        component: "router-tab3",
+        component: "page-tab3",
     },
     {
         title: "标签页tab4",
         path: "/tab4",
-        component: "router-tab4",
+        component: "page-tab4",
     },
 ];
 export default routerData;

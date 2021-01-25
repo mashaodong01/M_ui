@@ -1,10 +1,10 @@
 import Mvvm from "./mvvm.js";
-import style from "./style.js";
+import _style from "./style.js";
 import _template from "./template.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
-    ${style}
+    ${_style}
     ${_template}
 `;
 
@@ -28,4 +28,4 @@ export default class MvvmComponent extends HTMLElement {
     });
   }
 }
-customElements.define("router-mvvm", MvvmComponent);
+customElements.define("page-mvvm", MvvmComponent);

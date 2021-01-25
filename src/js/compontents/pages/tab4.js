@@ -11,11 +11,10 @@ template.innerHTML = `
 export default class Tab4 extends HTMLElement {
     constructor() {
         super();
-        this.path = null;
         this.attachShadow({ mode: "open" }).appendChild(
             template.content.cloneNode(true)
         );
     }
 }
 
-customElements.define("router-tab4", Tab4);
+customElements.define("page-tab4", Tab4);
