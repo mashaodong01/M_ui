@@ -9,4 +9,4 @@ import "@/js/compontents/pages/tab3.js";
 import "@/js/compontents/pages/tab4.js";
 
 
-import "@/css/index.css";
+import "@/css/index.less";
