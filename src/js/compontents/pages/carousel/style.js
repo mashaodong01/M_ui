@@ -18,6 +18,14 @@ const style = `
     opacity: 1;
     z-index: 1;
   }
+  .imgC .itemImg.active.opacity {
+    animation: fade-in;
+    animation-duration: 0.5s
+  }
+  .imgC .itemImg.other.opacity {
+    animation: fade-out;
+    animation-duration: 0.5s
+  }
   .imgC .itemImg,
   .imgC .itemImg img {
     height: 100%;
@@ -75,6 +83,16 @@ const style = `
     background-color: #ffffff;
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
   }  
+  @keyframes fade-in {  
+    0% {opacity: 0;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+  }  
+  @keyframes fade-out {  
+    0% {opacity: 1;}
+    50% {opacity: .5;}
+    100% {opacity: 0;}
+  } 
 </style>
 `
 export default style;

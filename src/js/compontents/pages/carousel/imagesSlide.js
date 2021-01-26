@@ -97,10 +97,8 @@ export default class Carousel {
     }
     pageChange(tpye, index, duratuin) {
         const num = tpye === "length" ? this.oImgCItem.length : index;
-        this.oimgC.style.transform = ` translate3d(${-this.sliderW * num}px,0px,0px)`;
+        this.oimgC.style.transform = `translate3d(${-this.sliderW * num}px,0px,0px)`;
         this.oimgC.style.transitionDuration = duratuin;
-
-
         this.changeItem(index);
     }
     changeItem(index) {
