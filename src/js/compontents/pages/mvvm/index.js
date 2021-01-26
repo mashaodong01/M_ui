@@ -9,23 +9,25 @@ template.innerHTML = `
 `;
 
 export default class MvvmComponent extends HTMLElement {
-  constructor() {
-    super();
-    this.template = template.content.cloneNode(true);
-    this.attachShadow({ mode: "open" }).appendChild(this.template);
-    this.init();
-  }
-  init() {
-    new Mvvm({
-      el: "#mvvm",
-      doc: this.shadowRoot,
-      data: {
-        name: "111",
-        age: "222",
-        sex: "333",
-        height: "444",
-      },
-    });
-  }
+    constructor() {
+        super();
+        this.template = template.content.cloneNode(true);
+        this.attachShadow({ mode: "open" }).appendChild(this.template);
+    }
+    connectedCallback() {
+        this.createMvvm();
+    }
+    createMvvm() {
+        new Mvvm({
+            el: "#mvvm",
+            doc: this.shadowRoot,
+            data: {
+                name: "111",
+                age: "222",
+                sex: "333",
+                height: "444",
+            },
+        });
+    }
 }
 customElements.define("page-mvvm", MvvmComponent);
