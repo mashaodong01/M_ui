@@ -1,3 +1,5 @@
+import { debounce } from "@/utils/minTools.js";
+import request from "@/utils/request.js";
 export default class Search {
   constructor(options) {
     this.odom = options.doc.querySelector(options.el);
@@ -8,9 +10,15 @@ export default class Search {
     this.initEvent();
   }
   initEvent() {
-    this.oinput.addEventListener("input", this.handleInput.bind(this), false);
+    this.oinput.addEventListener(
+      "input",
+      debounce(this.handleInput.bind(this), 500, false),
+      false
+    );
   }
-  handleInput(e) {
-    console.log(e.target.value)
+  async handleInput(e) {
+    const { value } = e.path[0];
+    const res = await request('https://www.baidu.com/sugrec?prod=pc&from=pc_web&wd=1', true);
+    console.log(res)
   }
 }
