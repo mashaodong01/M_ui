@@ -53,7 +53,7 @@ const style = `
       padding: 0 10px;
       list-style: none;
       color: #626675;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 36px;
       cursor: pointer;
     }
@@ -65,7 +65,7 @@ const style = `
     }
     #search-container .hnit {
       width: 300px;
-      font-size: 14px;
+      font-size: 16px;
       color: #606266;
       line-height: 32px;
       padding: 0 12px 0 0;

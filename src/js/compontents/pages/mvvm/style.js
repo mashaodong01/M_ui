@@ -1,7 +1,7 @@
 const style = ` 
   <style>
     .github-link {
-        height: 40px;
+        height: 46px;
     }
     .github-link a {
         position: relative;
@@ -9,7 +9,7 @@ const style = `
         outline: none;
         cursor: pointer;
         color: #409eff;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .github-link:hover a:after {
@@ -26,29 +26,29 @@ const style = `
     .inputs-item {
         display: flex;
         align-items: center;
-        height: 40px;
+        height: 46px;
     }
 
     .view-item,
     .inputs-item {
         display: flex;
         align-items: center;
-        height: 40px;
+        height: 46px;
     }
 
     .view-item .label,
     .inputs-item .label {
             text-align: right;
             vertical-align: middle;
-            font-size: 14px;
+            font-size: 16px;
             color: #606266;
-            line-height: 32px;
+            line-height: 36px;
             padding: 0 12px 0 0;
             box-sizing: border-box;
         }
 
     .view-item .value {
-        line-height: 32px;
+        line-height: 36px;
     }
 
     .inputs-item input {
@@ -60,8 +60,8 @@ const style = `
         color: #606266;
         display: inline-block;
         font-size: inherit;
-        height: 32px;
-        line-height: 32px;
+        height: 36px;
+        line-height: 36px;
         outline: none;
         padding: 0 15px;
         width: 100%;
