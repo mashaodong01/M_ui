@@ -1,13 +1,21 @@
 const template = `
   <div class="box">
     <div class="car-btn">
-        <button class="btn-prev" data-dir="prev">《</button>
-        <button class="btn-next" data-dir="next">》</button>
-    </div>
+        <button class="btn-prev" data-dir="prev">
+          <svg data-dir="prev" t="1611924231302" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3248" width="32" height="32">
+            <path data-dir="prev" d="M384 512L731.733333 202.666667c17.066667-14.933333 19.2-42.666667 4.266667-59.733334-14.933333-17.066667-42.666667-19.2-59.733333-4.266666l-384 341.333333c-10.666667 8.533333-14.933333 19.2-14.933334 32s4.266667 23.466667 14.933334 32l384 341.333333c8.533333 6.4 19.2 10.666667 27.733333 10.666667 12.8 0 23.466667-4.266667 32-14.933333 14.933333-17.066667 14.933333-44.8-4.266667-59.733334L384 512z" p-id="3249" fill="#dbdbdb"></path>
+          </svg>
+        </button>
+        <button class="btn-next" data-dir="next">
+          <svg data-dir="next" t="1611924249326" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3429" width="32" height="32">
+            <path data-dir="next" d="M731.733333 480l-384-341.333333c-17.066667-14.933333-44.8-14.933333-59.733333 4.266666-14.933333 17.066667-14.933333 44.8 4.266667 59.733334L640 512 292.266667 821.333333c-17.066667 14.933333-19.2 42.666667-4.266667 59.733334 8.533333 8.533333 19.2 14.933333 32 14.933333 10.666667 0 19.2-4.266667 27.733333-10.666667l384-341.333333c8.533333-8.533333 14.933333-19.2 14.933334-32s-4.266667-23.466667-14.933334-32z" p-id="3430" fill="#dbdbdb"></path>
+          </svg>
+        </button>
+      </div>
     <div class="imgC">
     </div>
     <div class="car-indicator">
     </div>
   </div>
-`
+`;
 export default template;

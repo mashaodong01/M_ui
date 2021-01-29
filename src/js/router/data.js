@@ -29,19 +29,9 @@ const routerData = [
     component: "page-lazy",
   },
   {
-    title: "标签页tab2",
-    path: "/tab2",
-    component: "page-tab2",
-  },
-  {
-    title: "标签页tab3",
-    path: "/tab3",
-    component: "page-tab3",
-  },
-  {
-    title: "标签页tab4",
-    path: "/tab4",
-    component: "page-tab4",
+    title: "长列表加载",
+    path: "/longList",
+    component: "page-long-list",
   },
 ];
 export default routerData;

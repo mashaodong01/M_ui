@@ -22,7 +22,7 @@ template.innerHTML = `
   <header class="header">
     <div class="title">
       <img src="${logo}" />
-      <span>Welcome to M-UI</span>
+      <span>Welcome to MA-HOME</span>
     </div>
   </header>
 `;
