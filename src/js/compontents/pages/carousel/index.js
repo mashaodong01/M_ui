@@ -1,6 +1,8 @@
 import _style from "./style.js";
 import _template from "./template.js";
 import _Carousel from "./imagesSlide";
+import "./slideItem/index.js"
+import "./indicator/index.js"
 import img01 from "@/static/images/carousel/01.jpg"
 import img02 from "@/static/images/carousel/02.jpg"
 import img03 from "@/static/images/carousel/03.jpg"

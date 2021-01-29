@@ -34,26 +34,20 @@ export default class Carousel {
         this.oindicatorC.appendChild(itemFangment);
     }
     createDiv(page, index) {
-        const odiv = document.createElement("div");
-        if (index !== 0) {
-            odiv.classList.add("itemImg");
-        } else {
-            odiv.classList.add("itemImg", "active");
+        const oslideItem = document.createElement("slide-item");
+        if (index == 0) {
+            oslideItem.setAttribute("class-active", "active");
         }
-        const oimg = new Image();
-        oimg.src = page;
-        odiv.appendChild(oimg);
-        return odiv
+        oslideItem.setAttribute("img-src", page);
+        return oslideItem
     }
     createI(index) {
-        const oi = document.createElement("i");
-        oi.setAttribute("index", index);
-        if (index !== 0) {
-            oi.classList.add("indicator-item");
-        } else {
-            oi.classList.add("indicator-item", "active");
+        const oindicatorItem = document.createElement("indicator-item");
+        if (index == 0) {
+            oindicatorItem.setAttribute("class-active", "active");
         }
-        return oi
+        oindicatorItem.setAttribute("index", index);
+        return oindicatorItem
     };
     playAuto() {
         this.timer = setInterval(() => {
@@ -106,9 +100,9 @@ export default class Carousel {
         const indicatorItem = this.indicatorItem;
         for (let i = 0; i < indicatorItem.length; i++) {
             if (index !== i) {
-                indicatorItem[i].classList.remove("active")
+                indicatorItem[i].setAttribute("class-active", "");
             } else {
-                indicatorItem[i].classList.add("active")
+                indicatorItem[i].setAttribute("class-active", "active");
             }
         }
     }
@@ -132,7 +126,7 @@ export default class Carousel {
         if (tagName === "button") {
             const dir = tar.dataset.dir;
             this.changeIndex(dir);
-        } else if (tagName === "i") {
+        } else if (tagName === "indicator-item") {
             this.curIdx = Number(tar.getAttribute("index"));
             this.pageChange("", this.curIdx, ".5s");
         }

@@ -11,27 +11,6 @@ const style = `
     width: 4200px;
     position: relative;
   }
-  .imgC .itemImg {
-    float: left;
-  }
-  .imgC .itemImg.active {
-    opacity: 1;
-    z-index: 1;
-  }
-  .imgC .itemImg.active.opacity {
-    animation: fade-in;
-    animation-duration: 0.5s
-  }
-  .imgC .itemImg.other.opacity {
-    animation: fade-out;
-    animation-duration: 0.5s
-  }
-  .imgC .itemImg,
-  .imgC .itemImg img {
-    height: 100%;
-    width: 600px;
-  }
-  
   .car-btn button {
     cursor: pointer;
     position: absolute;
@@ -67,22 +46,7 @@ const style = `
     left: 50px;
     display: flex;
     align-items: center;
-  }
-  
-  .car-indicator .indicator-item {
-    display: block;
-    height: 6px;
-    width: 6px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .car-indicator .active {
-    background-color: #ffffff;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
-  }  
+  } 
   @keyframes fade-in {  
     0% {opacity: 0;}
     50% {opacity: .5;}
