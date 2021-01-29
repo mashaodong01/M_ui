@@ -24,6 +24,11 @@ const routerData = [
     component: "page-search",
   },
   {
+    title: "懒加载",
+    path: "/lazy",
+    component: "page-lazy",
+  },
+  {
     title: "标签页tab2",
     path: "/tab2",
     component: "page-tab2",
