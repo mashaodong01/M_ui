@@ -33,5 +33,10 @@ const routerData = [
     path: "/longList",
     component: "page-long-list",
   },
+  {
+    title: "图片预加载",
+    path: "/prestrain",
+    component: "page-prestrain",
+  },
 ];
 export default routerData;
