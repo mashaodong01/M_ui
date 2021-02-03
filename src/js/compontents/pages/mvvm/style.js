@@ -1,5 +1,8 @@
 const style = ` 
   <style>
+    #mvvm {
+        padding: 30px;
+    }
     .github-link {
         height: 46px;
     }
@@ -38,14 +41,14 @@ const style = `
 
     .view-item .label,
     .inputs-item .label {
-            text-align: right;
-            vertical-align: middle;
-            font-size: 14px;
-            color: #606266;
-            line-height: 36px;
-            padding: 0 12px 0 0;
-            box-sizing: border-box;
-        }
+        text-align: right;
+        vertical-align: middle;
+        font-size: 16px;
+        color: #606266;
+        line-height: 36px;
+        padding: 0 12px 0 0;
+        box-sizing: border-box;
+    }
 
     .view-item .value {
         line-height: 36px;

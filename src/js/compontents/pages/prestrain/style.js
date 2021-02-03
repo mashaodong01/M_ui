@@ -1,45 +1,25 @@
 const style = `
 <style>
-  .lazy-img {
+  .prestrain-img {
     display: flex;
     padding: 30px;
   }
-  .lazy-img .container {
+  .prestrain-img .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 350px;
     height: 600px;
     padding: 10px;
-    overflow-y: scroll;
     border: 1px solid #42b983;
     border-radius: 5px;
   }
-  .lazy-img .container::-webkit-scrollbar {
-    width: 8px;
-    height: 0px;
-  }
-  .lazy-img .container::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: rgb(225, 243, 216);
-  }
-  .lazy-img .container::-webkit-scrollbar-track {
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    background: #fff;
-  }
-  .lazy-img .container .item {
-    width: calc(50% - 5px);
-    height: 250px;
-    margin-bottom: 10px;
-  }
-  .lazy-img .container .item img {
+  .prestrain-img .container img {
     width: 100%;
     height: 100%;
   }
   .annotation {
-    margin-left: 50px;
+    margin-left: 40px;
   }
   .annotation .scheme {
     width: 400px;

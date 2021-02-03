@@ -7,9 +7,9 @@ import "@/js/compontents/pages/mvvm/index.js";
 import "@/js/compontents/pages/carousel/index.js";
 import "@/js/compontents/pages/search/index.js";
 import "@/js/compontents/pages/lazyImage/index.js";
-import "@/js/compontents/pages/tab2.js";
-import "@/js/compontents/pages/tab3.js";
-import "@/js/compontents/pages/tab4.js";
+import "@/js/compontents/pages/longList/index.js";
+import "@/js/compontents/pages/prestrain/index.js";
+import "@/js/compontents/pages/dragArt/index.js";
 
 
 import "@/css/index.css";

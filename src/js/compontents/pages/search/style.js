@@ -8,6 +8,7 @@ const style = `
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 30px;
     }
     #search-container .input {
       position: relative;

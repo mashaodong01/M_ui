@@ -1,9 +1,12 @@
 const style = `
 <style>
+  .carousel {
+    padding: 30px;
+  }
   .box {
+    position: relative;
     height: 400px;
     width: 600px;
-    position: relative;
     overflow: hidden;
   }
   .imgC {
@@ -12,17 +15,19 @@ const style = `
     position: relative;
   }
   .car-btn button {
-    cursor: pointer;
     position: absolute;
     z-index: 2;
-    width: 30px;
-    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
     color: #ffffff;
     font-size: 20px;
     line-height: 60px;
-    justify-content: center;
-    display: flex;
     background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
     border: none;
     outline: none;
   }
@@ -30,12 +35,14 @@ const style = `
     background: rgba(0, 0, 0, 0.8);
   }
   .car-btn .btn-prev {
-    left: 0;
+    left: 20px;
     top: calc(50% - 30px);
+    animation:fade-in 1.5s;
   }
   .car-btn .btn-next {
-    right: 0;
+    right: 20px;
     top: calc(50% - 30px);
+    animation:fade-in 1.5s;
   }
   .car-indicator {
     height: 20px;
@@ -49,7 +56,7 @@ const style = `
   } 
   @keyframes fade-in {  
     0% {opacity: 0;}
-    50% {opacity: .5;}
+    50% {opacity: 1;}
     100% {opacity: 1;}
   }  
   @keyframes fade-out {  
@@ -58,5 +65,5 @@ const style = `
     100% {opacity: 0;}
   } 
 </style>
-`
+`;
 export default style;
