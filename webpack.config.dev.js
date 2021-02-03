@@ -9,10 +9,6 @@ let utils = {
 module.exports = {
     mode: "development",
     entry: "./src/js/index.js",
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "./js/index.js",
-    },
     module: {
         rules: [{
                 test: /\.js$/,
@@ -41,6 +37,8 @@ module.exports = {
                         },
                     },
                 ],
+                include: path.resolve(__dirname, 'src'), 
+                exclude: /node_modules/
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -90,5 +88,6 @@ module.exports = {
         },
         host: "localhost",
         port: 3000,
+        compress: true
     },
 };
