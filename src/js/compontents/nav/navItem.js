@@ -5,7 +5,7 @@ template.innerHTML = `
     .nav-item {
       padding: 10px 35px;
       margin-top: 15px;
-      font-size: 18px;
+      font-size: 14px;
       color: #304455;
       cursor: pointer;
       border-bottom: 2px solid transparent;

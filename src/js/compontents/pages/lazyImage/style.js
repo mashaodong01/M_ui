@@ -42,7 +42,7 @@ const style = `
   }
   .annotation .scheme {
     width: 400px;
-    font-size: 16px;
+    font-size: 14px;
     color: #606266;
     line-height: 32px;
     padding: 0 12px 0 0;

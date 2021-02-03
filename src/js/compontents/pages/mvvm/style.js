@@ -9,7 +9,7 @@ const style = `
         outline: none;
         cursor: pointer;
         color: #409eff;
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .github-link:hover a:after {
@@ -40,7 +40,7 @@ const style = `
     .inputs-item .label {
             text-align: right;
             vertical-align: middle;
-            font-size: 16px;
+            font-size: 14px;
             color: #606266;
             line-height: 36px;
             padding: 0 12px 0 0;
