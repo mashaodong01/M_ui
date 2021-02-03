@@ -9,6 +9,7 @@ const commonStyle = {
 const elementsData = [
   {
     component: "v-text",
+    class: "ele-input",
     label: "文字",
     propValue: "文字",
     icon: "el-icon-edit",
@@ -28,6 +29,7 @@ const elementsData = [
   {
     component: "v-button",
     label: "按钮",
+    class: "ele-button",
     propValue: "按钮",
     icon: "el-icon-thumb",
     animations: [],
@@ -50,6 +52,7 @@ const elementsData = [
   {
     component: "Picture",
     label: "图片",
+    class: "ele-img",
     icon: "el-icon-picture",
     propValue: logo,
     animations: [],

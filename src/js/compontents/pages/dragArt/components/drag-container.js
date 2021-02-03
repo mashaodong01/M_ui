@@ -8,6 +8,7 @@ template.innerHTML = `
           position: relative;
           width: 100%;
           height: 100%;
+          overflow: hidden
       }
    </style>
    <div class="drag-container">

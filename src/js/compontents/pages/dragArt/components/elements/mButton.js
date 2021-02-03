@@ -2,10 +2,12 @@ const template = document.createElement("template");
 template.innerHTML = `
    <style>
      .m-button {
-        
         width: 100px;
-        height: 40px;
+        height: 34px;
         background-color: #fff;
+        border: 1px solid #DCDFE6;
+        outline: none;
+        cursor: pointer;
      }
    </style>
    <button class="m-button">按钮</button>
@@ -21,6 +23,7 @@ export default class MButton extends HTMLElement {
   }
   connectedCallback() {
     this.bindEvent();
+    this.parent = this.parentElement;
   }
 
   bindEvent() {
@@ -33,9 +36,15 @@ export default class MButton extends HTMLElement {
   handleMousedown(e) {
     const offsetY = e.offsetY;
     const offsetX = e.offsetX;
+    const maxLeft = this.parent.offsetWidth - this.mButton.offsetWidth;
+    const maxTop = this.parent.offsetHeight - this.mButton.offsetHeight;
     const move = (en) => {
-      this.style.top = en.offsetY - offsetY - 80 + "px";
-      this.style.left = en.offsetX - offsetX - 220 + "px";
+      const top = en.offsetY - offsetY - 80;
+      const left = en.offsetX - offsetX - 220;
+      if (top >= 0 && top <= maxTop && left >= 0 && left <= maxLeft) {
+        this.style.top = top + "px";
+        this.style.left = left + "px";
+      }
     };
     const up = () => {
       document.removeEventListener("mousemove", move);
