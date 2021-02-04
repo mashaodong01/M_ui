@@ -20,7 +20,6 @@ export function mousedown(offsetY, offsetX) {
 }
 export function observerSet(key, componentId) {
     observer.setData(key, componentId);
-
 }
 export function removeChild(dom) {
     while (dom.firstElementChild) {

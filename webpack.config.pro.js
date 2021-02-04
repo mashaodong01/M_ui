@@ -10,7 +10,7 @@ const proConfig = {
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: "[chunkhash].js",
-    publicPath: "/assets/",
+    publicPath: "/",
     // publicPath: "http://... ...",
   },
   module: {
