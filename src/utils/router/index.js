@@ -21,6 +21,7 @@ export default class HashHistory {
     }
     _routeBind() {
         window.addEventListener("hashchange", this._handleRoutingEvent.bind(this));
+        window.addEventListener("popstate", this._handleRoutingEvent.bind(this));
     }
     _handleRoutingEvent() {
         const hash = this.current === "" ? "/" : this.current;
@@ -49,5 +50,6 @@ export default class HashHistory {
     push(url) {
         this.current = url;
         window.location.hash = url;
+        // window.history.pushState(null, '', url)
     }
 }

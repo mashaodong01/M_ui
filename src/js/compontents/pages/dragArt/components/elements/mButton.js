@@ -6,11 +6,20 @@ template.innerHTML = `
      .m-button {
         width: 100px;
         height: 34px;
-        background-color: #fff;
-        border: 1px solid #DCDFE6;
+        color: #fff;
+        background-color: #409eff;
+        border: none;
+        border-color: #409eff;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 34px;
         outline: none;
         cursor: pointer;
      }
+    .m-button:hover {
+        background: #66b1ff;
+        border-color: #66b1ff;
+    }
    </style>
    <button class="m-button">按钮</button>
 `;

@@ -5,13 +5,20 @@ template.innerHTML = `
      .m-input {
         width: 200px;
         height: 33px;
+        padding: 0 12px;
         background-color: #fff;
         border: 1px solid #DCDFE6;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 34px;
         outline: none;
         cursor: pointer;
+        letter-spacing: 0px;
+        color: #000;
      }
    </style>
-   <input class="m-input" />
+   <input class="m-input" type="text" />
 `;
 
 export default class MInput extends HTMLElement {
