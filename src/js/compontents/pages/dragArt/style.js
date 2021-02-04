@@ -17,21 +17,23 @@ const style = `
       height: calc(100% - 60px);
     }
     .drag-main .components {
+      width: 190px;
       height: 100%;
-      width: 200px;
       padding: 10px;
       box-sizing: border-box;
       background: #fff;
     }
     .drag-main .container {
-      width: calc(100% - 440px);
-      height: calc(100% - 40px);
-      margin: 20px;
+      width: calc(100% - 410px);
+      height: calc(100% - 20px);
+      margin: 10px;
       background: #fff;
     }
     .drag-main .configration {
       height: 100%;
       width: 200px;
+      padding: 10px;
+      box-sizing: border-box;
       background: #fff;
     }
   </style>

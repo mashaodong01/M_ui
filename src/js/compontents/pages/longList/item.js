@@ -4,7 +4,7 @@ template.innerHTML = `
     .list-item {
       height: 40px;
       line-height: 40px;
-      font-size: 16px;
+      font-size: 14px;
       color: #606266;
       border-bottom: 1px solid #eaeefb;
     }

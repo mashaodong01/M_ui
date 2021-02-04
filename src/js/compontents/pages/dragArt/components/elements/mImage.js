@@ -1,27 +1,25 @@
-import { mousedown, observerSet } from "../../utils/index.js";
-
+import logo from "@/static/images/logo.png";
+import { mousedown, observerSet } from "../../utils/index"
 const template = document.createElement("template");
 template.innerHTML = `
    <style>
-     .m-button {
-        width: 100px;
-        height: 34px;
-        background-color: #fff;
-        border: 1px solid #DCDFE6;
-        outline: none;
+     .m-image {
+        width: 300px;
+        height: 200px;
         cursor: pointer;
      }
    </style>
-   <button class="m-button">按钮</button>
+   <img draggable="false" class="m-image" />
 `;
 
-export default class MButton extends HTMLElement {
+export default class MImage extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" }).appendChild(
             template.content.cloneNode(true)
         );
-        this.mElement = this.shadowRoot.querySelector(".m-button");
+        this.mElement = this.shadowRoot.querySelector(".m-image");
+        this.mElement.src = logo;
         this.componentId = null;
     }
     connectedCallback() {
@@ -56,4 +54,4 @@ export default class MButton extends HTMLElement {
         }
     }
 }
-customElements.define("m-button", MButton);
+customElements.define("m-image", MImage);

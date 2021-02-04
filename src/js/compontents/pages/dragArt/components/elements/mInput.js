@@ -1,27 +1,26 @@
-import { mousedown, observerSet } from "../../utils/index.js";
-
 const template = document.createElement("template");
+import { mousedown, observerSet } from "../../utils/index"
 template.innerHTML = `
    <style>
-     .m-button {
-        width: 100px;
-        height: 34px;
+     .m-input {
+        width: 200px;
+        height: 33px;
         background-color: #fff;
         border: 1px solid #DCDFE6;
         outline: none;
         cursor: pointer;
      }
    </style>
-   <button class="m-button">按钮</button>
+   <input class="m-input" />
 `;
 
-export default class MButton extends HTMLElement {
+export default class MInput extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" }).appendChild(
             template.content.cloneNode(true)
         );
-        this.mElement = this.shadowRoot.querySelector(".m-button");
+        this.mElement = this.shadowRoot.querySelector(".m-input");
         this.componentId = null;
     }
     connectedCallback() {
@@ -56,4 +55,4 @@ export default class MButton extends HTMLElement {
         }
     }
 }
-customElements.define("m-button", MButton);
+customElements.define("m-input", MInput);

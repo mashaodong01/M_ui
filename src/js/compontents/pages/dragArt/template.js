@@ -10,7 +10,7 @@ const template = `
         <drag-container />
       </div>
       <div class="configration">
-      
+        <drag-options />
       </div>
     </div>
   </div>
