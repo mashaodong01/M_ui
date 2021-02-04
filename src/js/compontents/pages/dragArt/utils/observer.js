@@ -1,25 +1,27 @@
 class Observer {
-    constructor() {
-        this.map = {};
-    }
-    subscribe(fun, observerKey) {
-        if (typeof this.map[observerKey] != "undefined") {
-            return;
+  constructor() {
+    this.map = {};
+  }
+  subscribe(fun, observerKey) {
+    // this.map = { ...this.map };
+    delete this.map[observerKey];
+    let value = null;
+    Object.defineProperty(this.map, observerKey, {
+      get() {
+        return value;
+      },
+      set(nVal) {
+        if (nVal !== value) {
+          value = nVal;
+          fun(nVal);
         }
-        let value = null;
-        Object.defineProperty(this.map, observerKey, {
-            get() {
-                return value
-            },
-            set(nVal) {
-                value = nVal;
-                fun(nVal)
-            }
-        })
-    }
-    setData(key, val) {
-        this.map[key] = val;
-    }
+      },
+      configurable: true
+    });
+  }
+  setData(key, val) {
+    this.map[key] = val;
+  }
 }
 
 export default new Observer();

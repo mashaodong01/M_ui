@@ -17,16 +17,17 @@ template.innerHTML = `
 export default class DragOptions extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: "open" }).appendChild(
+        this.appendChild(
             template.content.cloneNode(true)
         );
-        this.optionsBox = this.shadowRoot.querySelector(".options");
+        this.optionsBox = this.querySelector(".options");
         this.currentDomData = null;
     }
     connectedCallback() {
-        observer.subscribe(this.currentDomChange.bind(this), "currentComponentId");
+       observer.subscribe(this.currentDomChange.bind(this), "currentComponentId", this.optionsBox);
     }
     currentDomChange(componentId) {
+        this.optionsBox = this.querySelector(".options");
         const data = store.get("components");
         this.currentDomData = data.find(ele => ele.componentId == componentId);
         removeChild(this.optionsBox);
@@ -45,9 +46,7 @@ export default class DragOptions extends HTMLElement {
             }
         }
         this.optionsBox.appendChild(fragment);
-    }
-    bindEvent(dom) {
-
+        console.log(this.optionsBox)
     }
 }
 customElements.define("drag-options", DragOptions);
