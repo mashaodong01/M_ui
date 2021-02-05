@@ -4,7 +4,6 @@ import store from "../store/index.js";
 import { optionStyle } from "./elementsData.js";
 import { removeChild } from "../utils/index.js";
 
-
 const template = document.createElement("template");
 template.innerHTML = `
     <style>
@@ -33,39 +32,39 @@ template.innerHTML = `
 `;
 
 export default class DragOptions extends HTMLElement {
-    constructor() {
-        super();
-        this.appendChild(
-            template.content.cloneNode(true)
-        );
-        this.optionsBox = this.querySelector(".options");
-        this.currentDomData = null;
+  constructor() {
+    super();
+    this.appendChild(template.content.cloneNode(true));
+    this.optionsBox = this.querySelector(".options");
+  }
+  connectedCallback() {
+    observer.subscribe(this.currentDomChange.bind(this), "currentComponentId");
+  }
+  currentDomChange(componentId) {
+    this.optionsBox = this.querySelector(".options");
+    const data = store.get("components");
+    const { style, propValue, srcImg } = data.find(
+      (ele) => ele.componentId == componentId
+    );
+    removeChild(this.optionsBox);
+    this.createDom({ propValue, srcImg, ...style }, componentId);
+  }
+  createDom(optiosData, componentId) {
+    const fragment = new DocumentFragment();
+    for (let key in optiosData) {
+      if (optiosData[key]) {
+        const { type, label } = optionStyle[key];
+        let optionEle = null;
+        optionEle = document.createElement("option-input");
+        optionEle.setAttribute("defaultval", optiosData[key]);
+        optionEle.setAttribute("type", type);
+        optionEle.setAttribute("key", key);
+        optionEle.setAttribute("label", label);
+        optionEle.setAttribute("componentid", componentId);
+        fragment.appendChild(optionEle);
+      }
     }
-    connectedCallback() {
-        observer.subscribe(this.currentDomChange.bind(this), "currentComponentId");
-    }
-    currentDomChange(componentId) {
-        this.optionsBox = this.querySelector(".options");
-        const data = store.get("components");
-        this.currentDomData = data.find(ele => ele.componentId == componentId);
-        removeChild(this.optionsBox);
-        this.createDom(this.currentDomData.style, componentId);
-    }
-    createDom(styleData, componentId) {
-        const fragment = new DocumentFragment();
-        for (let key in styleData) {
-            if (styleData[key]) {
-                const { type, label } = optionStyle[key];
-                const optionEle = document.createElement("option-input");
-                optionEle.setAttribute("type", type);
-                optionEle.setAttribute("key", key);
-                optionEle.setAttribute("label", label);
-                optionEle.setAttribute("defaultval", styleData[key]);
-                optionEle.setAttribute("componentid", componentId);
-                fragment.appendChild(optionEle);
-            }
-        }
-        this.optionsBox.appendChild(fragment);
-    }
+    this.optionsBox.appendChild(fragment);
+  }
 }
 customElements.define("drag-options", DragOptions);

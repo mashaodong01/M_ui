@@ -1,5 +1,6 @@
 import "./components/elements";
 import "./components/drag-container";
+import "./components/tools";
 import "./components/options";
 import _template from "./template.js";
 import _style from "./style.js";

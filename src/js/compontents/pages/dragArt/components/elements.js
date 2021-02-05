@@ -16,14 +16,14 @@ template.innerHTML = `
         height: 34px;
         margin-bottom: 10px;
         color: #fff;
-        background-color: #909399;
+        background-color: #409eff;
         border: none;
         outline: none;
         border-radius: 2px;
         cursor: pointer;
      }
      button:hover {
-        background-color: #a6a9ad;
+        background-color: #66b1ff;
         color: #fff;
      }
      button svg {

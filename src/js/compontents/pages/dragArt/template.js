@@ -1,6 +1,7 @@
 const template = `
   <div id="dragArt" class="drag-art">
     <div class="tools">
+      <drag-tools />
     </div>
     <div class="drag-main">
       <div class="components">

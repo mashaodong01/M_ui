@@ -43,4 +43,10 @@ export function updateStyle(key, value) {
     if (styleOptionType.notOperation.includes(key)) {
         this.mElement.style[key] = value;
     }
+    if (key === "propValue") {
+        this.mElement.innerText = value;
+    }
+    if (key === "srcImg") {
+        this.mElement.src = value;
+    }
 }
