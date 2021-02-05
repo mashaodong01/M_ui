@@ -1,5 +1,5 @@
 import logo from "@/static/images/logo.png";
-import { mousedown, observerSet } from "../../utils/index";
+import { mousedown, observerSet, updateStyle } from "../../utils/index";
 import observer from "../../utils/observer.js";
 
 const template = document.createElement("template");
@@ -57,7 +57,7 @@ export default class MImage extends HTMLElement {
     }
     updateEle({ componentId, key, value }) {
         if (this.componentId == componentId) {
-            this.mElement.style[key] = value + "px";
+            updateStyle.call(this, key, value);
         }
     }
     handleMousedown(e) {

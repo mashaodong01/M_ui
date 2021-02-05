@@ -1,10 +1,12 @@
+{
+    /* <div class="github-link">
+        <a href="https://github.com/mashaodong01/M_ui/tree/master/src/js/compontents/pages/mvvm" target="_block">
+            gihub地址
+        </a>
+    </div> */
+}
 const template = ` 
   <div id="mvvm">
-    <div class="github-link">
-      <a href="https://github.com/mashaodong01/M_ui/tree/master/src/js/compontents/pages/mvvm" target="_block">
-        gihub地址
-      </a>
-    </div>
     <div id="inputs">
         <div class="inputs-item">
             <span class="label">

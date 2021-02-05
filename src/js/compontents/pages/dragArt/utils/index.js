@@ -1,4 +1,5 @@
 import observer from "./observer.js";
+import { styleOptionType } from "../components/elementsData.js";
 
 export function mousedown(offsetY, offsetX) {
     const maxLeft = this.parent.offsetWidth - this.mElement.offsetWidth;
@@ -33,5 +34,13 @@ export function debounce(fn, wait, flag) {
         timer = setTimeout(() => {
             fn.apply(this, args)
         }, wait)
+    }
+}
+export function updateStyle(key, value) {
+    if (styleOptionType.addPixelUnit.includes(key)) {
+        this.mElement.style[key] = value + "px";
+    }
+    if (styleOptionType.notOperation.includes(key)) {
+        this.mElement.style[key] = value;
     }
 }

@@ -19,7 +19,6 @@ const elementsData = [{
             height: 33,
             fontSize: 14,
             fontWeight: 500,
-            lineHeight: 34,
             letterSpacing: 0,
             color: "#000",
         },
@@ -40,7 +39,6 @@ const elementsData = [{
             borderRadius: 3,
             fontSize: 14,
             fontWeight: 500,
-            lineHeight: 34,
             letterSpacing: 0,
             color: "#ffffff",
             backgroundColor: "#409eff",
@@ -81,9 +79,10 @@ export const optionStyle = {
     letterSpacing: { type: "number", label: "字间距" },
     backgroundColor: { type: "color", label: "背景色" },
 }
-export const selectOptionData = {
-    // fontWeight: [
-    //     {label: '', value: ''}
-    // ]
+export const styleOptionType = {
+    addPixelUnit: ["width", "height", "borderRadius", "borderWidth", "fontSize", "lineHeight", "letterSpacing"],
+    notOperation: ["color", "opacity", "borderColor", "fontWeight", "backgroundColor"],
 }
+
+
 export default elementsData;

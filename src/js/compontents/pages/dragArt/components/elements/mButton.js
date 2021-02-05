@@ -1,4 +1,4 @@
-import { mousedown, observerSet } from "../../utils/index.js";
+import { mousedown, observerSet, updateStyle } from "../../utils/index.js";
 import observer from "../../utils/observer.js";
 
 const template = document.createElement("template");
@@ -10,11 +10,9 @@ template.innerHTML = `
             height: 34px;
             color: #fff;
             background-color: #409eff;
-            border: none;
-            border-color: #409eff;
+            border: 1px solid #409eff;
             border-radius: 4px;
             font-size: 14px;
-            line-height: 34px;
             outline: none;
             cursor: pointer;
         }
@@ -73,7 +71,7 @@ export default class MButton extends HTMLElement {
     }
     updateEle({ componentId, key, value }) {
         if (this.componentId == componentId) {
-            this.mElement.style[key] = value + "px";
+            updateStyle.call(this, key, value);
         }
     }
     static get observedAttributes() {

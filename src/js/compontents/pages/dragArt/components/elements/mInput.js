@@ -1,5 +1,5 @@
 const template = document.createElement("template");
-import { mousedown, observerSet } from "../../utils/index";
+import { mousedown, observerSet, updateStyle } from "../../utils/index";
 import observer from "../../utils/observer.js";
 
 template.innerHTML = `
@@ -13,7 +13,6 @@ template.innerHTML = `
         border-radius: 3px;
         font-size: 14px;
         font-weight: 500;
-        line-height: 34px;
         outline: none;
         cursor: pointer;
         letter-spacing: 0px;
@@ -66,7 +65,7 @@ export default class MInput extends HTMLElement {
     }
     updateEle({ componentId, key, value }) {
         if (this.componentId == componentId) {
-            this.mElement.style[key] = value + "px";
+            updateStyle.call(this, key, value);
         }
     }
     handleMousedown(e) {
