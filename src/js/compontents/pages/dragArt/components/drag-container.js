@@ -45,7 +45,7 @@ export default class DragContainer extends HTMLElement {
         e.preventDefault();
         e.stopPropagation();
         const { offsetY, offsetX, index } = JSON.parse(e.dataTransfer.getData("param"));
-        const ele = elementsData[index];
+        const ele = JSON.parse(JSON.stringify(elementsData[index]));
         const top = this._getTop(e.offsetY, offsetY, ele.style.height) + "px";
         const left = this._getLeft(e.offsetX, offsetX, ele.style.width) + "px";
         const componentId = store.getId();
@@ -85,8 +85,15 @@ export default class DragContainer extends HTMLElement {
             otag.style.left = left;
             otag.style.position = "absolute";
             otag.setAttribute("componentId", componentId);
+            otag.addEventListener("click", this.tagClick.bind(this), false)
             this.dragContainer.appendChild(otag);
         }
+    }
+    tagClick(e) {
+        for (let ele of this.dragContainer.childNodes) {
+            ele.setAttribute && ele.setAttribute("isactive", "")
+        }
+        e.path[3].setAttribute("isactive", "active");
     }
 }
 

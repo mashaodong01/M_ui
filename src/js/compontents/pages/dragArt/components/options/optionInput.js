@@ -1,4 +1,6 @@
 import { debounce } from "../../utils/index.js";
+import observer from "../../utils/observer.js";
+import store from "../../store/index.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -50,18 +52,32 @@ export default class OptionInput extends HTMLElement {
         );
         this.olabel = this.shadowRoot.querySelector(".label");
         this.ovalue = this.shadowRoot.querySelector(".value");
+        this.key = null;
+        this.componentId = null;
     }
     connectedCallback() {
         this.bindEvent()
     }
-    bindEvent(dom) {
-        this.ovalue.addEventListener("input", debounce(this.handleInput.bind(this), 1000, false), false);
+    bindEvent() {
+        this.ovalue.addEventListener("input", debounce(this.handleInput.bind(this), 500, false), false);
     }
     handleInput(e) {
-       console.log(e.path[0].value);
+        const param = { componentId: this.componentId, key: this.key, value: e.path[0].value };
+        observer.setData("componentStyle", param);
+        this.updateStore(param)
+    }
+    updateStore({ componentId, key, value }) {
+        const data = store.get("components");
+        for (let i of data) {
+            if (i.componentId == componentId) {
+                i.style[key] = value;
+                store.update("components", data);
+                return;
+            }
+        };
     }
     static get observedAttributes() {
-        return ["label", "defaultval", "type"]
+        return ["label", "defaultval", "type", "key", "componentid"]
     }
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === "label") {
@@ -71,6 +87,10 @@ export default class OptionInput extends HTMLElement {
         } else if (name === "type") {
             this.ovalue.setAttribute("type", newValue);
             this.ovalue.classList.add(newValue)
+        } else if (name === "key") {
+            this.key = newValue
+        } else if (name === "componentid") {
+            this.componentId = newValue
         }
     }
 }

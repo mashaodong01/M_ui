@@ -1,5 +1,7 @@
 const template = document.createElement("template");
-import { mousedown, observerSet } from "../../utils/index"
+import { mousedown, observerSet } from "../../utils/index";
+import observer from "../../utils/observer.js";
+
 template.innerHTML = `
    <style>
      .m-input {
@@ -16,9 +18,22 @@ template.innerHTML = `
         cursor: pointer;
         letter-spacing: 0px;
         color: #000;
+        box-sizing: border-box
+     }
+     .box-ele {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 1px;
+     }
+     .box-ele.active {
+         background: transparent;
+         border: 1px solid #59c7f9;
      }
    </style>
-   <input class="m-input" type="text" />
+   <div class="box-ele">
+        <input class="m-input" type="text" />
+   </div>
 `;
 
 export default class MInput extends HTMLElement {
@@ -27,6 +42,7 @@ export default class MInput extends HTMLElement {
         this.attachShadow({ mode: "open" }).appendChild(
             template.content.cloneNode(true)
         );
+        this.obox = this.shadowRoot.querySelector(".box-ele");
         this.mElement = this.shadowRoot.querySelector(".m-input");
         this.componentId = null;
     }
@@ -45,7 +61,13 @@ export default class MInput extends HTMLElement {
             "click",
             this.handleClick.bind(this),
             false
-        )
+        );
+        observer.subscribe(this.updateEle.bind(this), "componentStyle");
+    }
+    updateEle({ componentId, key, value }) {
+        if (this.componentId == componentId) {
+            this.mElement.style[key] = value + "px";
+        }
     }
     handleMousedown(e) {
         mousedown.apply(this, [e.offsetY, e.offsetX])
@@ -54,11 +76,14 @@ export default class MInput extends HTMLElement {
         observerSet("currentComponentId", this.componentId);
     }
     static get observedAttributes() {
-        return ["componentid"];
+        return ["componentid", "isactive"];
     }
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === "componentid") {
             this.componentId = newValue;
+        } else if (name === "isactive") {
+            this.obox.classList.remove("active");
+            newValue && this.obox.classList.add(newValue);
         }
     }
 }

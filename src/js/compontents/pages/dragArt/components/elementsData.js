@@ -35,16 +35,15 @@ const elementsData = [{
         style: {
             width: 100,
             height: 34,
-            borderWidth: "",
-            borderColor: "",
-            borderRadius: "",
+            borderWidth: 1,
+            borderColor: "#409eff",
+            borderRadius: 3,
             fontSize: 14,
             fontWeight: 500,
-            lineHeight: "",
+            lineHeight: 34,
             letterSpacing: 0,
-            textAlign: "",
-            color: "",
-            backgroundColor: "",
+            color: "#ffffff",
+            backgroundColor: "#409eff",
         },
     },
     {
@@ -54,11 +53,11 @@ const elementsData = [{
         icon: `<svg t="1612425266050" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4575" width="16" height="16"><path d="M400.696 268.795c-17.249 0-31.233 13.986-31.233 31.233v30.471c0 17.249 13.986 31.233 31.233 31.233s31.233-13.986 31.233-31.233v-30.471c0-17.249-13.985-31.233-31.233-31.233z" p-id="4576" fill="#ffffff"></path><path d="M623.649 361.734c17.249 0 31.234-13.986 31.234-31.233v-30.471c0-17.249-13.986-31.233-31.234-31.233s-31.233 13.986-31.233 31.233v30.471c-0.001 17.248 13.985 31.233 31.233 31.233z" p-id="4577" fill="#ffffff"></path><path d="M438.295 388.804c-14.656 9.104-19.155 28.362-10.050 43.013 11.209 18.047 41.976 48.59 86.157 48.59 43.958 0 75.1-30.313 86.574-48.223 9.303-14.529 5.068-33.847-9.455-43.15-14.539-9.298-33.852-5.068-43.15 9.455-0.122 0.199-13.38 19.45-33.969 19.45-20.009 0-32.444-18.128-33.278-19.373-9.166-14.423-28.28-18.805-42.829-9.761z" p-id="4578" fill="#ffffff"></path><path d="M824.508503 116.690676 571.592236 116.690676c-17.248849 0-31.233352 13.985526-31.233352 31.233352s13.985526 31.233352 31.233352 31.233352l252.916267 0c40.181141 0 72.878844 32.692586 72.878844 72.878844l0 396.966057-189.334159-165.29465c-12.20088-10.655687-30.517037-10.207479-42.173518 0.9967L468.578048 674.16231 309.521472 517.519714c-11.895935-11.70253-30.903847-12.002358-43.154869-0.645706L126.957507 646.163629l0-394.126382c0-40.186258 32.692586-72.878844 72.878844-72.878844l252.916267 0c17.248849 0 31.233352-13.985526 31.233352-31.233352S470.000444 116.690676 452.751594 116.690676L199.836351 116.690676c-74.632791 0-135.346571 60.71378-135.346571 135.346571l0 520.56405c0 74.632791 60.71378 135.346571 135.346571 135.346571l252.916267 0c17.248849 0 31.233352-13.985526 31.233352-31.233352s-13.985526-31.233352-31.233352-31.233352L199.836351 845.481164c-40.186258 0-72.878844-32.692586-72.878844-72.878844l0-41.23924 160.003134-148.385539 159.428036 157.007917c12.048407 11.865235 31.361265 11.981892 43.546795 0.274246l198.576661-190.68697 208.876238 182.346001 0 40.683585c0 40.186258-32.697703 72.878844-72.878844 72.878844L571.592236 845.481164c-17.248849 0-31.233352 13.985526-31.233352 31.233352s13.985526 31.233352 31.233352 31.233352l252.916267 0c74.627674 0 135.346571-60.71378 135.346571-135.346571L959.855074 252.037247C959.855074 177.404456 899.136178 116.690676 824.508503 116.690676z" p-id="4579" fill="#ffffff"></path></svg>`,
         propValue: logo,
         animations: [],
-        events: {},                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+        events: {},
         style: {
             width: 300,
             height: 200,
-            borderRadius: "",
+            borderRadius: 0,
         },
     },
 ];
@@ -69,17 +68,18 @@ elementsData.forEach((item) => {
 
 
 export const optionStyle = {
-    width: {type: "number", label: "宽", defaultval: 100},
-    height: {type: "number", label: "高", defaultval: 34},
-    borderRadius: {type: "number", label: "圆角", defaultval: 4},
-    opacity: {type: "number", label: "透明度", defaultval: 1},
-    borderWidth: {type: "number", label: "边框宽度", defaultval: 1},
-    borderColor: {type: "color", label: "边框颜色", defaultval: "#409eff"},
-    fontSize: {type: "number", label: "字体大小", defaultval: 14},
-    fontWeight: {type: "number", label: "字粗细", defaultval: "normal"},
-    lineHeight: {type: "number", label: "行高", defaultval: 34},
-    letterSpacing : {type: "number", label: "字间距", defaultval: 0},
-    backgroundColor: {type: "color", label: "背景色", defaultval: "#409eff"},
+    width: { type: "number", label: "宽" },
+    height: { type: "number", label: "高" },
+    color: { type: "color", label: "颜色" },
+    borderRadius: { type: "number", label: "圆角" },
+    opacity: { type: "number", label: "透明度" },
+    borderWidth: { type: "number", label: "边框宽度" },
+    borderColor: { type: "color", label: "边框颜色" },
+    fontSize: { type: "number", label: "字体大小" },
+    fontWeight: { type: "number", label: "字粗细" },
+    lineHeight: { type: "number", label: "行高" },
+    letterSpacing: { type: "number", label: "字间距" },
+    backgroundColor: { type: "color", label: "背景色" },
 }
 export const selectOptionData = {
     // fontWeight: [

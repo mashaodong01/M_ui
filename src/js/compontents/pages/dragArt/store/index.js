@@ -16,6 +16,11 @@ class Store {
             return this.map.get(key);
         }
     }
+    update(key, value) {
+        if (this.map.has(key)) {
+            this.map.set(key, value)
+        }
+    }
     clearItem(key) {
         this.map.remove(key);
     }
