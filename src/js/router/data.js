@@ -42,5 +42,10 @@ const routerData = [{
         path: "/dragArt",
         component: "page-drag-art",
     },
+    {
+        title: "鼠标预测",
+        path: "/mouse",
+        component: "page-nav",
+    },
 ];
 export default routerData;

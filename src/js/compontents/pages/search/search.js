@@ -8,6 +8,7 @@ export default class Search {
         this.oinput = this.odom.querySelector("input");
         this.oresult = this.odom.querySelector(".result")
         this.init();
+        this.cpLock = false;
     }
     init() {
         this.initEvent();
@@ -18,8 +19,24 @@ export default class Search {
             debounce(this.handleInput.bind(this), 500, false),
             false
         );
+        this.oinput.addEventListener(
+            "compositionstart",
+            this.compositionStart.bind(this),
+            false
+        );
+        this.oinput.addEventListener(
+            "compositionend",
+            this.compositionEnd.bind(this),
+            false
+        );
         document.addEventListener("click", this.docClick.bind(this), false);
         this.oresult.addEventListener("click", this.itemClick.bind(this), false);
+    }
+    compositionStart() {
+        this.cpLock = true;
+    }
+    compositionEnd() {
+        this.cpLock = false;
     }
     docClick(e) {
         if (e.path[0] !== this.oinput) {
@@ -54,11 +71,10 @@ export default class Search {
         this.oresult.style.display = list.length ? "block" : "none";
     }
     async handleInput(e) {
+        if (this.cpLock) return;
         const { value } = e.path[0];
-
         // const res = await request(`https://www.baidu.com/sugrec?prod=pc&from=pc_web&wd=${value}`, true);
         // this.searchCb(res)
-
         jsonp("https://www.baidu.com/sugrec", { prod: "pc", from: "pc_web", wd: value }, this.searchCb.bind(this))
     }
 }
