@@ -39,7 +39,8 @@ export default class Search {
         this.cpLock = false;
     }
     docClick(e) {
-        if (e.path[0] !== this.oinput) {
+        console.log(e)
+        if (e.target.shadowRoot.querySelector("input") !== this.oinput) {
             this.oresult.style.display = "none"
         }
     }
@@ -72,7 +73,7 @@ export default class Search {
     }
     async handleInput(e) {
         if (this.cpLock) return;
-        const { value } = e.path[0];
+        const { value } = this.oinput;
         // const res = await request(`https://www.baidu.com/sugrec?prod=pc&from=pc_web&wd=${value}`, true);
         // this.searchCb(res)
         jsonp("https://www.baidu.com/sugrec", { prod: "pc", from: "pc_web", wd: value }, this.searchCb.bind(this))

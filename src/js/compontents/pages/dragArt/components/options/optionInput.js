@@ -91,16 +91,20 @@ export default class OptionInput extends HTMLElement {
     }
   }
   handleChange(e) {
-      const url = window.URL.createObjectURL(e.path[0].files[0]);
+      const valueBox = this.shadowRoot.querySelector('.value-box');
+      const inputDom = valueBox.querySelector('.value');
+      const url = window.URL.createObjectURL(inputDom.files[0]);
       const param = { componentId: this.componentId, key: this.key, value: url };
       observer.setData("componentStyle", param);
       this.updateStore(param)
   }
   handleInput(e) {
+    const valueBox = this.shadowRoot.querySelector('.value-box');
+    const inputDom = valueBox.querySelector('.value');
     const param = {
       componentId: this.componentId,
       key: this.key,
-      value: e.path[0].value,
+      value: inputDom.value,
     };
     observer.setData("componentStyle", param);
     this.updateStore(param);

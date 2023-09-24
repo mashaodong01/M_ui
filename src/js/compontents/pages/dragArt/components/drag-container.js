@@ -93,7 +93,7 @@ export default class DragContainer extends HTMLElement {
         for (let ele of this.dragContainer.childNodes) {
             ele.setAttribute && ele.setAttribute("isactive", "")
         }
-        e.path[3].setAttribute("isactive", "active");
+        e.target.setAttribute("isactive", "active");
     }
 }
 

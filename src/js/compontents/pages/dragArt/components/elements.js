@@ -53,19 +53,21 @@ export default class DragElements extends HTMLElement {
             dom.setAttribute("draggable", true);
             dom.setAttribute("data-index", index);
             dom.innerHTML = ele.icon + ele.label;
-            this.bindEvent(dom);
+            this.bindEvent(dom, index);
             fragment.appendChild(dom);
         });
         this.elementsBox.appendChild(fragment);
     }
-    bindEvent(dom) {
-        dom.addEventListener("dragstart", this.handleDragStart.bind(this), false);
+    bindEvent(dom, index) {
+        dom.addEventListener("dragstart", function(e) {
+            this.handleDragStart(e, index)
+        }.bind(this), false);
     }
-    handleDragStart(e) {
+    handleDragStart(e, index) {
         e.dataTransfer.setData(
             "param",
             JSON.stringify({
-                index: e.path[0].dataset.index,
+                index: index,
                 offsetX: e.offsetX,
                 offsetY: e.offsetY,
             })
